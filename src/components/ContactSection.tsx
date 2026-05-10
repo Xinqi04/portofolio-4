@@ -41,7 +41,7 @@ export default function ContactSection() {
               </a>
 
               {/* Social Buttons */}
-              <div className="flex flex-wrap gap-4 mt-4 sm:mt-0">
+              <div className="flex flex-wrap justify-center items-center gap-4 mt-4 sm:mt-0">
                 {/* WhatsApp */}
                 <a href="https://wa.me/6285701767698" target="_blank" rel="noopener noreferrer" className="relative group w-14 h-14">
                   <div className="absolute inset-0 bg-[#111] border-[3px] border-[#00ffff] translate-x-1.5 translate-y-1.5 group-hover:translate-x-1 group-hover:translate-y-1 transition-transform -z-10"></div>

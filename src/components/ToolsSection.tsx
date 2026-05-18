@@ -3,7 +3,6 @@ import Image from 'next/image';
 const tools = [
   { name: 'Visual Studio Code', category: 'Code Editor', icon: '/assets/vscode.png' },
   { name: 'React JS', category: 'Framework', icon: '/assets/reactjs.png' },
-  { name: 'Next JS', category: 'Framework', icon: '/assets/nextjs.png' },
   { name: 'Tailwind CSS', category: 'Framework', icon: '/assets/tailwind.png' },
   { name: 'Bootstrap', category: 'Framework', icon: '/assets/bootstrap.png' },
   { name: 'Javascript', category: 'Language', icon: '/assets/js.png' },

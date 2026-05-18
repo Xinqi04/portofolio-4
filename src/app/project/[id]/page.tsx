@@ -21,8 +21,8 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
 
         {/* Back button */}
         <div className="w-full mb-8">
-          <Link href="/#powers" className="text-[#00ffff] font-black italic hover:underline flex items-center gap-2">
-            <span>&larr;</span> KEMBALI KE POWERS
+          <Link href="/#gallery" className="text-[#00ffff] font-black italic hover:underline flex items-center gap-2">
+            <span>&larr;</span> KEMBALI KE GALLERY
           </Link>
         </div>
 

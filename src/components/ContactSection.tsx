@@ -31,7 +31,7 @@ export default function ContactSection() {
             <div className="flex flex-col gap-6 items-center">
 
               {/* Main Button */}
-              <a href="mailto:emailanda@domain.com" className="relative group inline-block">
+              <a href="mailto:rizaanwarfadil@gmail.com" className="relative group inline-block">
                 {/* Shadow */}
                 <div className="absolute inset-0 bg-[#111] border-[3px] border-[#00ffff] translate-x-2 translate-y-2 group-hover:translate-x-1 group-hover:translate-y-1 transition-transform -z-10"></div>
                 {/* Button Base */}

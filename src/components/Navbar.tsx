@@ -10,11 +10,11 @@ export default function Navbar() {
 
       {/* Navigation Links */}
       <div className="hidden md:flex items-center gap-8 text-sm font-bold text-gray-300 uppercase">
-        <Link href="#origins" className="text-[#00ffff] hover:text-[#00ffff] transition-colors">ORIGINS</Link>
-        <Link href="#powers" className="hover:text-[#00ffff] transition-colors">POWERS</Link>
-        <Link href="#gallery" className="hover:text-[#00ffff] transition-colors">GALLERY</Link>
-        <Link href="#timeline" className="hover:text-[#00ffff] transition-colors">TIMELINE</Link>
-        <Link href="#contact" className="hover:text-[#00ffff] transition-colors">CONTACT</Link>
+        <Link href="/#origins" className="text-[#00ffff] hover:text-[#00ffff] transition-colors">ORIGINS</Link>
+        <Link href="/#powers" className="hover:text-[#00ffff] transition-colors">POWERS</Link>
+        <Link href="/#gallery" className="hover:text-[#00ffff] transition-colors">GALLERY</Link>
+        <Link href="/#timeline" className="hover:text-[#00ffff] transition-colors">TIMELINE</Link>
+        <Link href="/#contact" className="hover:text-[#00ffff] transition-colors">CONTACT</Link>
       </div>
 
       {/* CTA Button */}

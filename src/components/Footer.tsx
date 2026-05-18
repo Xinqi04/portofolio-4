@@ -18,7 +18,7 @@ export default function Footer() {
         {/* Right */}
         <div className="flex gap-6 text-gray-300 text-xs md:text-sm font-bold uppercase tracking-widest">
           <Link href="#" className="hover:text-[#00ffff] transition-colors">BACK TO START</Link>
-          <Link href="#contact" className="hover:text-[#00ffff] transition-colors">CONTACT HQ</Link>
+          <Link href="/#contact" className="hover:text-[#00ffff] transition-colors">CONTACT HQ</Link>
           <Link href="#" className="hover:text-[#00ffff] transition-colors">RSS FEED</Link>
         </div>
 

@@ -41,7 +41,7 @@ export default function ProjectsPage() {
               Arsip lengkap misi heroik yang telah diselesaikan.
             </p>
           </div>
-          <Link href="/#powers" className="text-[#00ffff] font-black italic hover:underline flex items-center gap-2 mb-2 md:mb-0">
+          <Link href="/#gallery" className="text-[#00ffff] font-black italic hover:underline flex items-center gap-2 mb-2 md:mb-0">
             <span>&larr;</span> KEMBALI
           </Link>
         </div>

@@ -3,6 +3,7 @@ import MainSection from "../components/MainSection";
 import OriginsSection from "../components/OriginsSection";
 import ToolsSection from "../components/ToolsSection";
 import PowersSection from "../components/PowersSection";
+import CertificatesSection from "../components/CertificatesSection";
 import TimelineSection from "../components/TimelineSection";
 import ContactSection from "../components/ContactSection";
 import Footer from "../components/Footer";
@@ -18,6 +19,7 @@ export default function Home() {
         <OriginsSection />
         <ToolsSection />
         <PowersSection />
+        <CertificatesSection />
         <TimelineSection />
         <ContactSection />
       </main>
@@ -25,4 +27,3 @@ export default function Home() {
     </div>
   );
 }
-

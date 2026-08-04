@@ -2,7 +2,7 @@
 const timelineData = [
   {
     id: 1,
-    year: '2022 - SEKARANG',
+    year: '2022 - 2026',
     title: 'MAHASISWA TEKNIK INFORMATIKA',
     description: 'Menempuh pendidikan di Teknik Informatika dengan fokus pada pengembangan web, backend development, dan Machine Learning.',
     icon: (

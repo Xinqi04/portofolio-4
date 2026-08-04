@@ -5,7 +5,7 @@ export const projects = [
     title: 'LEARNING RECOMMENDATION SYSTEM',
     tags: ['PYTHON', 'NEO4J', 'FASTAPI'],
     description: 'Developed a personalized learning recommendation system using graph database (Neo4j) to model relationships between students, courses, and learning outcomes.',
-    fullDescription: 'Developed a personalized learning recommendation system using graph database (Neo4j) to model relationships between students, courses, and learning outcomes. Built RESTful APIs using Flask for adaptive recommendation delivery. Implemented logic for tracking student performance and dynamically recommending relevant learning materials. Designed scalable architecture to support future LMS integration.',
+    fullDescription: 'Developed a personalized learning recommendation system using graph database (Neo4j) to model relationships between students, courses, and learning outcomes. Built RESTful APIs using Fast API for adaptive recommendation delivery. Implemented logic for tracking student performance and dynamically recommending relevant learning materials. Designed scalable architecture to support future LMS integration.',
     externalLink: 'https://fe-obe-sistem-rekomendasi.vercel.app/',
     date: 'Jan 2026 - Present',
     images: ['/images/sistemrekomendasi/14.png', '/images/sistemrekomendasi/15.png', '/images/sistemrekomendasi/16.png', '/images/sistemrekomendasi/17.png', '/images/sistemrekomendasi/18.png']

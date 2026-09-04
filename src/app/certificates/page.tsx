@@ -7,6 +7,8 @@ import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import PdfPreviewModal from '../../components/PdfPreviewModal';
 import { certificates, Certificate } from '../../lib/certificates';
+import { certificateTitlesEn } from '../../lib/translations';
+import { useLanguage } from '../../components/LanguageProvider';
 
 // Helper for award icons based on index
 const getAwardIcon = (index: number) => {
@@ -32,6 +34,7 @@ const getAwardIcon = (index: number) => {
 };
 
 export default function CertificatesPage() {
+  const { language } = useLanguage();
   const [selectedCert, setSelectedCert] = useState<Certificate | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -50,14 +53,14 @@ export default function CertificatesPage() {
         <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6 border-b-[4px] border-[#00ffff] pb-6">
           <div>
             <h1 className="text-[#00ffff] text-4xl font-black italic uppercase tracking-widest">
-              SEMUA SERTIFIKAT
+              {language === 'id' ? 'SEMUA SERTIFIKAT' : 'ALL CERTIFICATES'}
             </h1>
             <p className="text-gray-400 italic mt-2 text-lg">
-              Arsip lengkap sertifikasi dan pencapaian keahlian yang telah dikumpulkan.
+              {language === 'id' ? 'Arsip lengkap sertifikasi dan pencapaian keahlian yang telah dikumpulkan.' : 'A complete archive of certifications and professional achievements.'}
             </p>
           </div>
           <Link href="/#certificates" className="text-[#00ffff] font-black italic hover:underline flex items-center gap-2 mb-2 md:mb-0">
-            <span>&larr;</span> KEMBALI
+            <span>&larr;</span> {language === 'id' ? 'KEMBALI' : 'BACK'}
           </Link>
         </div>
 
@@ -85,7 +88,7 @@ export default function CertificatesPage() {
               {/* Body Section */}
               <div className="p-6 flex flex-col flex-1">
                 <h3 className="text-[#00ffff] font-black italic tracking-wider mb-2 uppercase text-lg leading-snug">
-                  {cert.title}
+                  {language === 'id' ? cert.title : certificateTitlesEn[cert.id]}
                 </h3>
 
                 {/* Issuer */}
@@ -98,7 +101,7 @@ export default function CertificatesPage() {
                   onClick={() => handlePreview(cert)}
                   className="w-full block border-[2px] border-[#00ffff] py-3 text-center text-[#00ffff] font-black italic tracking-wider hover:bg-[#00ffff] hover:text-black transition-colors mt-auto cursor-pointer"
                 >
-                  PRATINJAU PDF
+                  {language === 'id' ? 'PRATINJAU PDF' : 'PREVIEW PDF'}
                 </button>
               </div>
 
@@ -116,7 +119,7 @@ export default function CertificatesPage() {
           isOpen={isModalOpen}
           onClose={() => setIsModalOpen(false)}
           pdfUrl={selectedCert.pdfUrl}
-          title={selectedCert.title}
+          title={language === 'id' ? selectedCert.title : certificateTitlesEn[selectedCert.id]}
         />
       )}
     </div>

@@ -1,34 +1,43 @@
+'use client';
+
 import Image from 'next/image';
+import { useLanguage } from './LanguageProvider';
 
 const panels = [
   {
     id: 1,
     imageSrc: "/images/coding-bg.png",
-    text: "Semua dimulai dari 'Hello World!'. Dari situ aku mulai suka coding dan terus belajar sampai sekarang."
+    text: "Semua dimulai dari 'Hello World!'. Dari situ aku mulai suka coding dan terus belajar sampai sekarang.",
+    textEn: "It all started with 'Hello World!'. That was when I began enjoying coding, and I have kept learning ever since."
   },
   {
     id: 2,
     imageSrc: "/images/alam-bg.png",
-    text: "Kadang aku suka ke alam, lihat gunung atau laut. Lumayan buat refreshing dari aktivitas sehari-hari."
+    text: "Kadang aku suka ke alam, lihat gunung atau laut. Lumayan buat refreshing dari aktivitas sehari-hari.",
+    textEn: "Sometimes I spend time in nature, enjoying the mountains or the sea. It is a great way to recharge from daily activities."
   },
   {
     id: 3,
     imageSrc: "/images/buku-bg.png",
-    text: "Aku juga suka baca buku. Dari situ bisa dapet banyak sudut pandang dan ide baru."
+    text: "Aku juga suka baca buku. Dari situ bisa dapet banyak sudut pandang dan ide baru.",
+    textEn: "I also enjoy reading books. They give me new perspectives and fresh ideas."
   },
   {
     id: 4,
     imageSrc: "/images/film-bg.png",
-    text: "Nonton film jadi hiburan favorit. Seru aja ngikutin cerita dan visualnya."
+    text: "Nonton film jadi hiburan favorit. Seru aja ngikutin cerita dan visualnya.",
+    textEn: "Watching films is one of my favorite ways to unwind. I enjoy following the stories and visuals."
   },
   {
     id: 5,
     imageSrc: "/images/badmin-bg.png",
-    text: "Kalau olahraga, biasanya main badminton. Biar tetap aktif dan nggak cuma di depan layar."
+    text: "Kalau olahraga, biasanya main badminton. Biar tetap aktif dan nggak cuma di depan layar.",
+    textEn: "For exercise, I usually play badminton. It keeps me active and away from the screen for a while."
   }
 ];
 
 export default function OriginsSection() {
+  const { language } = useLanguage();
   return (
     <section id="origins" className="w-full mt-24 py-12 relative overflow-hidden bg-[#111] border-y-[4px] border-[#00ffff]">
 
@@ -61,7 +70,7 @@ export default function OriginsSection() {
               <div className="absolute bottom-6 left-6 right-6">
                 <div className="relative bg-[#0a0a0a] border-[3px] border-[#00ffff] p-5 shadow-lg">
                   <p className="text-gray-200 italic text-sm md:text-base leading-relaxed">
-                    "{panel.text}"
+                    &ldquo;{language === 'id' ? panel.text : panel.textEn}&rdquo;
                   </p>
                   {/* Pointer */}
                   <div className="absolute -bottom-[8px] left-10 w-[14px] h-[14px] bg-[#0a0a0a] border-b-[3px] border-r-[3px] border-[#00ffff] rotate-45"></div>
@@ -91,7 +100,7 @@ export default function OriginsSection() {
               <div className="absolute bottom-6 left-6 right-6">
                 <div className="relative bg-[#0a0a0a] border-[3px] border-[#00ffff] p-5 shadow-lg">
                   <p className="text-gray-200 italic text-sm md:text-base leading-relaxed">
-                    "{panel.text}"
+                    &ldquo;{language === 'id' ? panel.text : panel.textEn}&rdquo;
                   </p>
                   {/* Pointer */}
                   <div className="absolute -bottom-[8px] left-10 w-[14px] h-[14px] bg-[#0a0a0a] border-b-[3px] border-r-[3px] border-[#00ffff] rotate-45"></div>

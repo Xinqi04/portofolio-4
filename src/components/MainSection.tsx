@@ -1,6 +1,10 @@
+'use client';
+
 import Image from 'next/image';
+import { useLanguage } from './LanguageProvider';
 
 export default function MainSection() {
+  const { language } = useLanguage();
   return (
     <section className="w-full max-w-6xl mx-auto mt-8 border-[4px] border-[#00ffff] bg-[#1a1c20] p-8 md:p-16 flex flex-col md:flex-row items-center justify-between min-h-[600px] relative overflow-hidden">
 
@@ -11,7 +15,7 @@ export default function MainSection() {
       <div className="flex flex-col items-start gap-8 z-10 max-w-xl">
         {/* Issue Badge */}
         <div className="bg-[#00ffff] text-black font-black italic px-4 py-1 transform -skew-x-12">
-          <span className="transform skew-x-12 block text-sm tracking-wider">ISSUE #01 - PERDANA!</span>
+          <span className="transform skew-x-12 block text-sm tracking-wider">{language === 'id' ? 'ISSUE #01 - PERDANA!' : 'ISSUE #01 - PREMIERE!'}</span>
         </div>
 
         {/* Title */}
@@ -23,7 +27,9 @@ export default function MainSection() {
         {/* Description Box */}
         <div className="border-l-[6px] border-[#00ffff] bg-[#111111]/80 p-5 backdrop-blur-sm max-w-md">
           <p className="text-gray-300 italic text-lg leading-relaxed">
-            Memperkenalkan <span className="text-[#00ffff] font-bold">Sang Arsitek Kode</span> - Pahlawan di balik antarmuka web modern yang luar biasa!
+            {language === 'id' ? 'Memperkenalkan ' : 'Introducing '}
+            <span className="text-[#00ffff] font-bold">{language === 'id' ? 'Sang Arsitek Kode' : 'The Code Architect'}</span>
+            {language === 'id' ? ' — pahlawan di balik antarmuka web modern yang luar biasa!' : ' — the hero behind exceptional modern web interfaces!'}
           </p>
         </div>
 
@@ -38,7 +44,7 @@ export default function MainSection() {
             rel="noopener noreferrer"
             className="relative inline-block bg-[#a6c1ee] border-[3px] border-[#00ffff] text-[#111] italic font-black text-lg px-8 py-3 transition-transform group-hover:-translate-x-1 group-hover:-translate-y-1"
           >
-            Lihat CV
+            {language === 'id' ? 'Lihat CV' : 'View CV'}
           </a>
         </div>
       </div>
@@ -53,7 +59,7 @@ export default function MainSection() {
           <div className="relative w-full aspect-[3/4] overflow-hidden border-b-[4px] border-[#00ffff]">
             <Image
               src="/images/foto-pp.png"
-              alt="Sang Penulis Kode"
+              alt={language === 'id' ? 'Sang Penulis Kode' : 'The Code Author'}
               fill
               className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
             />

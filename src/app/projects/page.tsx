@@ -1,8 +1,12 @@
+'use client';
+
 import { projects } from '../../lib/projects';
+import { projectTranslations } from '../../lib/translations';
 import Link from 'next/link';
 import Image from 'next/image';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
+import { useLanguage } from '../../components/LanguageProvider';
 
 // Helper for icons based on index
 const getIcon = (index: number) => {
@@ -25,6 +29,7 @@ const getIcon = (index: number) => {
 };
 
 export default function ProjectsPage() {
+  const { language } = useLanguage();
   return (
     <div className="min-h-screen bg-[#111] font-sans flex flex-col">
       <Navbar />
@@ -35,14 +40,14 @@ export default function ProjectsPage() {
         <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6 border-b-[4px] border-[#00ffff] pb-6">
           <div>
             <h1 className="text-[#00ffff] text-4xl font-black italic uppercase tracking-widest">
-              SEMUA MISI
+              {language === 'id' ? 'SEMUA MISI' : 'ALL MISSIONS'}
             </h1>
             <p className="text-gray-400 italic mt-2 text-lg">
-              Arsip lengkap misi heroik yang telah diselesaikan.
+              {language === 'id' ? 'Arsip lengkap misi heroik yang telah diselesaikan.' : 'A complete archive of heroic missions I have completed.'}
             </p>
           </div>
           <Link href="/#gallery" className="text-[#00ffff] font-black italic hover:underline flex items-center gap-2 mb-2 md:mb-0">
-            <span>&larr;</span> KEMBALI
+            <span>&larr;</span> {language === 'id' ? 'KEMBALI' : 'BACK'}
           </Link>
         </div>
 
@@ -90,7 +95,7 @@ export default function ProjectsPage() {
 
                 {/* Description */}
                 <p className="text-gray-300 text-sm leading-relaxed mb-8 flex-1">
-                  {project.description}
+                  {language === 'id' ? projectTranslations[project.id].description : project.description}
                 </p>
 
                 {/* Action Button */}
@@ -98,7 +103,7 @@ export default function ProjectsPage() {
                   href={`/project/${project.id}`}
                   className="w-full block border-[2px] border-[#00ffff] py-3 text-center text-[#00ffff] font-black italic tracking-wider hover:bg-[#00ffff] hover:text-black transition-colors mt-auto"
                 >
-                  DETAIL MISI
+                  {language === 'id' ? 'DETAIL MISI' : 'MISSION DETAILS'}
                 </Link>
               </div>
 

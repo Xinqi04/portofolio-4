@@ -5,6 +5,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { certificates, Certificate } from '../lib/certificates';
 import PdfPreviewModal from './PdfPreviewModal';
+import { certificateTitlesEn } from '../lib/translations';
+import { useLanguage } from './LanguageProvider';
 
 // Helper for award icons
 const getAwardIcon = (index: number) => {
@@ -30,6 +32,7 @@ const getAwardIcon = (index: number) => {
 };
 
 export default function CertificatesSection() {
+  const { language } = useLanguage();
   const [selectedCert, setSelectedCert] = useState<Certificate | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -73,7 +76,7 @@ export default function CertificatesSection() {
               {/* Body Section */}
               <div className="p-6 flex flex-col flex-1">
                 <h3 className="text-[#00ffff] font-black italic tracking-wider mb-2 uppercase text-lg leading-snug">
-                  {cert.title}
+                  {language === 'id' ? cert.title : certificateTitlesEn[cert.id]}
                 </h3>
 
                 {/* Issuer */}
@@ -86,7 +89,7 @@ export default function CertificatesSection() {
                   onClick={() => handlePreview(cert)}
                   className="w-full block border-[2px] border-[#00ffff] py-3 text-center text-[#00ffff] font-black italic tracking-wider hover:bg-[#00ffff] hover:text-black transition-colors mt-auto cursor-pointer"
                 >
-                  PRATINJAU PDF
+                  {language === 'id' ? 'PRATINJAU PDF' : 'PREVIEW PDF'}
                 </button>
               </div>
 
@@ -100,7 +103,7 @@ export default function CertificatesSection() {
             href="/certificates"
             className="inline-block border-[3px] border-[#00ffff] bg-transparent text-[#00ffff] px-10 py-4 font-black italic tracking-widest hover:bg-[#00ffff] hover:text-black transition-all duration-300"
           >
-            LIHAT SEMUA SERTIFIKAT &rarr;
+            {language === 'id' ? 'LIHAT SEMUA SERTIFIKAT' : 'VIEW ALL CERTIFICATES'} &rarr;
           </Link>
         </div>
 
@@ -112,7 +115,7 @@ export default function CertificatesSection() {
           isOpen={isModalOpen}
           onClose={() => setIsModalOpen(false)}
           pdfUrl={selectedCert.pdfUrl}
-          title={selectedCert.title}
+          title={language === 'id' ? selectedCert.title : certificateTitlesEn[selectedCert.id]}
         />
       )}
     </section>

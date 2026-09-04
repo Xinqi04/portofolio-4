@@ -1,7 +1,11 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 
 import { projects } from '../lib/projects';
+import { projectTranslations } from '../lib/translations';
+import { useLanguage } from './LanguageProvider';
 
 // Helper for icons based on index
 const getIcon = (index: number) => {
@@ -24,6 +28,7 @@ const getIcon = (index: number) => {
 };
 
 export default function PowersSection() {
+  const { language } = useLanguage();
   return (
     <section id="gallery" className="w-full py-16 bg-[#111]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -79,7 +84,7 @@ export default function PowersSection() {
 
                 {/* Description */}
                 <p className="text-gray-300 text-sm leading-relaxed mb-8 flex-1">
-                  {project.description}
+                  {language === 'id' ? projectTranslations[project.id].description : project.description}
                 </p>
 
                 {/* Action Button */}
@@ -87,7 +92,7 @@ export default function PowersSection() {
                   href={`/project/${project.id}`}
                   className="w-full block border-[2px] border-[#00ffff] py-3 text-center text-[#00ffff] font-black italic tracking-wider hover:bg-[#00ffff] hover:text-black transition-colors mt-auto"
                 >
-                  LIHAT MISI
+                  {language === 'id' ? 'LIHAT MISI' : 'VIEW MISSION'}
                 </Link>
               </div>
 
@@ -101,7 +106,7 @@ export default function PowersSection() {
             href="/projects"
             className="inline-block border-[3px] border-[#00ffff] bg-transparent text-[#00ffff] px-10 py-4 font-black italic tracking-widest hover:bg-[#00ffff] hover:text-black transition-all duration-300"
           >
-            LIHAT SEMUA MISI &rarr;
+            {language === 'id' ? 'LIHAT SEMUA MISI' : 'VIEW ALL MISSIONS'} &rarr;
           </Link>
         </div>
 

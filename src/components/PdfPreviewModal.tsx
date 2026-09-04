@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import { useLanguage } from './LanguageProvider';
 
 interface PdfPreviewModalProps {
   isOpen: boolean;
@@ -10,6 +11,7 @@ interface PdfPreviewModalProps {
 }
 
 export default function PdfPreviewModal({ isOpen, onClose, pdfUrl, title }: PdfPreviewModalProps) {
+  const { language } = useLanguage();
   // Prevent body scrolling when modal is open
   useEffect(() => {
     if (isOpen) {
@@ -48,7 +50,7 @@ export default function PdfPreviewModal({ isOpen, onClose, pdfUrl, title }: PdfP
             onClick={onClose}
             className="flex items-center justify-center font-black italic hover:bg-black hover:text-[#00ffff] px-3 py-1 border-2 border-black hover:border-[#00ffff] transition-all text-xs tracking-widest"
           >
-            TUTUP [X]
+            {language === 'id' ? 'TUTUP' : 'CLOSE'} [X]
           </button>
         </div>
 
@@ -74,13 +76,13 @@ export default function PdfPreviewModal({ isOpen, onClose, pdfUrl, title }: PdfP
               <polyline points="15 3 21 3 21 9" />
               <line x1="10" y1="14" x2="21" y2="3" />
             </svg>
-            BUKA DI TAB BARU
+            {language === 'id' ? 'BUKA DI TAB BARU' : 'OPEN IN NEW TAB'}
           </a>
           <button 
             onClick={onClose}
             className="bg-[#00ffff] text-black px-6 py-2 text-xs font-black italic tracking-widest hover:bg-white hover:text-black transition-all"
           >
-            SELESAI
+            {language === 'id' ? 'SELESAI' : 'DONE'}
           </button>
         </div>
       </div>

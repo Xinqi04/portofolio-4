@@ -1,4 +1,7 @@
+'use client';
+
 import Image from 'next/image';
+import { useLanguage } from './LanguageProvider';
 
 const tools = [
   { name: 'Visual Studio Code', category: 'Code Editor', icon: '/assets/vscode.png' },
@@ -15,42 +18,64 @@ const tools = [
 ];
 
 export default function ToolsSection() {
-  return (
-    <section id="powers" className="m-4 mt-16 p-4 bg-[#111] border-[4px] border-[#00ffff]">
-      <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
+  const { language } = useLanguage();
 
-        {/* Title Box - matching the portfolio theme */}
-        <div className="mb-12">
-          <h2 className="text-[#00ffff] text-3xl text-center font-black italic uppercase tracking-wider">
+  return (
+    <section id="powers" className="w-full border-y-[4px] border-[#00ffff] bg-[#0d0f12] py-20 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        {/* Section heading */}
+        <div className="mb-12 flex items-end gap-5">
+          <div className="shrink-0">
+            <span className="mb-2 inline-block bg-[#00ffff] px-3 py-1 text-xs font-black italic tracking-[0.2em] text-black">
+              TECH STACK
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-black italic uppercase tracking-wider text-[#00ffff]">
             POWERS
-          </h2>
+            </h2>
+          </div>
+          <div className="mb-2 hidden h-[3px] flex-1 bg-[#00ffff]/40 sm:block" />
+          <span className="mb-0.5 hidden font-mono text-sm font-bold tracking-widest text-gray-500 sm:block">
+            {language === 'id' ? '11 KEMAMPUAN' : '11 ABILITIES'}
+          </span>
         </div>
 
         {/* Grid Container */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {tools.map((tool, index) => (
             <div
-              key={index}
-              className="flex items-center gap-4 p-4 sm:p-5 border border-gray-800 rounded-xl bg-[#0a0a0a] hover:bg-[#1a1a1a] hover:border-gray-600 transition-all duration-300"
+              key={tool.name}
+              className="group relative"
             >
-              {/* Icon */}
-              <div className="relative w-10 h-10 flex-shrink-0">
-                <Image
-                  src={tool.icon}
-                  alt={tool.name}
-                  fill
-                  className="object-contain"
-                />
-              </div>
+              <div className="absolute inset-0 translate-x-1.5 translate-y-1.5 bg-[#00ffff]/20 transition-transform duration-300 group-hover:translate-x-2 group-hover:translate-y-2" />
 
-              {/* Text */}
-              <div className="flex flex-col">
-                <span className="text-gray-100 font-bold text-sm tracking-wide">
-                  {tool.name}
+              <div className="relative flex min-h-24 items-center gap-4 border-2 border-[#00ffff]/65 bg-[#101317] p-4 transition-[transform,border-color,background-color] duration-300 group-hover:-translate-y-1 group-hover:border-[#00ffff] group-hover:bg-[#151a1e]">
+                <span className="absolute right-3 top-2 font-mono text-[11px] font-black tracking-wider text-[#00ffff]/45">
+                  {String(index + 1).padStart(2, '0')}
                 </span>
-                <span className="text-gray-500 text-xs mt-0.5">
-                  {tool.category}
-                </span>
+
+                {/* Icon */}
+                <div className="relative flex h-14 w-14 shrink-0 items-center justify-center border border-[#00ffff]/35 bg-[#07090b] p-2.5">
+                  <div className="relative h-full w-full transition-transform duration-300 group-hover:scale-110">
+                    <Image
+                      src={tool.icon}
+                      alt=""
+                      fill
+                      sizes="36px"
+                      className="object-contain"
+                    />
+                  </div>
+                </div>
+
+                {/* Text */}
+                <div className="flex min-w-0 flex-col pr-5">
+                  <span className="text-sm font-black tracking-wide text-gray-100">
+                    {tool.name}
+                  </span>
+                  <span className="mt-1 text-xs font-bold uppercase tracking-widest text-[#00ffff]/60">
+                    {tool.category}
+                  </span>
+                </div>
               </div>
             </div>
           ))}

@@ -1,10 +1,16 @@
 
+'use client';
+
+import { useLanguage } from './LanguageProvider';
+
 const timelineData = [
   {
     id: 1,
     year: '2022 - 2026',
     title: 'MAHASISWA TEKNIK INFORMATIKA',
     description: 'Menempuh pendidikan di Teknik Informatika dengan fokus pada pengembangan web, backend development, dan Machine Learning.',
+    titleEn: 'INFORMATICS ENGINEERING STUDENT',
+    descriptionEn: 'Studying Informatics Engineering with a focus on web development, backend development, and Machine Learning.',
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
@@ -17,6 +23,8 @@ const timelineData = [
     year: '2025',
     title: 'DBS CODING CAMP',
     description: 'Mengikuti program DBS Coding Camp untuk memperdalam kemampuan pemrograman, problem solving, dan pengembangan aplikasi modern.',
+    titleEn: 'DBS CODING CAMP',
+    descriptionEn: 'Joined DBS Coding Camp to strengthen programming, problem solving, and modern application development skills.',
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="12" cy="8" r="7" />
@@ -29,6 +37,8 @@ const timelineData = [
     year: '2026',
     title: 'JUNIOR WEB DEVELOPMENT',
     description: 'Mengembangkan kemampuan sebagai Junior Web Developer dengan membangun website responsif serta khususnya di bidang frontend development.',
+    titleEn: 'JUNIOR WEB DEVELOPER',
+    descriptionEn: 'Developing skills as a Junior Web Developer by building responsive websites, with a particular focus on frontend development.',
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
@@ -38,6 +48,7 @@ const timelineData = [
 ];
 
 export default function TimelineSection() {
+  const { language } = useLanguage();
   return (
     <section id="timeline" className="w-full py-24 bg-[#111] relative overflow-hidden">
 
@@ -82,12 +93,12 @@ export default function TimelineSection() {
 
                         {/* Title */}
                         <h3 className="text-[#00ffff] font-black italic tracking-widest mb-4 uppercase text-lg md:text-xl">
-                          {item.title}
+                          {language === 'id' ? item.title : item.titleEn}
                         </h3>
 
                         {/* Description */}
                         <p className="text-gray-300 italic text-base md:text-lg leading-relaxed font-medium">
-                          {item.description}
+                          {language === 'id' ? item.description : item.descriptionEn}
                         </p>
                       </div>
 

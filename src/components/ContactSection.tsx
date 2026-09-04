@@ -1,4 +1,9 @@
+'use client';
+
+import { useLanguage } from './LanguageProvider';
+
 export default function ContactSection() {
+  const { language } = useLanguage();
   return (
     <section id="contact" className="w-full bg-[#111] flex justify-center px-4 md:px-8">
       <div className="w-full max-w-6xl relative p-8 md:p-16 flex flex-col items-center justify-center min-h-[400px]">
@@ -13,7 +18,7 @@ export default function ContactSection() {
         {/* Text BERSAMBUNG... */}
         <div className="relative z-10 mb-8 mt-4">
           <h2 className="text-[#00ffff] font-bold italic tracking-widest text-lg md:text-xl">
-            BERSAMBUNG...
+            {language === 'id' ? 'BERSAMBUNG...' : 'TO BE CONTINUED...'}
           </h2>
         </div>
 
@@ -25,7 +30,7 @@ export default function ContactSection() {
           <div className="relative border-[4px] border-[#00ffff] bg-[#0a0a0a] p-8 md:p-14 flex flex-col items-center text-center">
 
             <p className="text-gray-200 italic text-lg md:text-xl font-medium mb-10 leading-relaxed">
-              "Apakah Anda siap untuk memulai petualangan berikutnya bersama saya?"
+              &ldquo;{language === 'id' ? 'Apakah Anda siap untuk memulai petualangan berikutnya bersama saya?' : 'Are you ready to start the next adventure with me?'}&rdquo;
             </p>
 
             <div className="flex flex-col gap-6 items-center">
@@ -36,7 +41,7 @@ export default function ContactSection() {
                 <div className="absolute inset-0 bg-[#111] border-[3px] border-[#00ffff] translate-x-2 translate-y-2 group-hover:translate-x-1 group-hover:translate-y-1 transition-transform -z-10"></div>
                 {/* Button Base */}
                 <div className="relative bg-[#00ffff] border-[3px] border-[#111] text-[#111] font-black italic px-8 py-3 tracking-widest text-lg hover:bg-white transition-colors">
-                  HUBUNGI SAYA!
+                  {language === 'id' ? 'HUBUNGI SAYA!' : 'CONTACT ME!'}
                 </div>
               </a>
 

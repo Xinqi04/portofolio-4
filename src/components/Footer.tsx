@@ -1,6 +1,10 @@
+'use client';
+
 import Link from 'next/link';
+import { useLanguage } from './LanguageProvider';
 
 export default function Footer() {
+  const { language } = useLanguage();
   return (
     <footer className="w-full bg-[#0a0a0a] border-t-[6px] border-[#00ffff] py-8 px-6">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
@@ -17,7 +21,7 @@ export default function Footer() {
 
         {/* Right */}
         <div className="flex gap-6 text-gray-300 text-xs md:text-sm font-bold uppercase tracking-widest">
-          <Link href="#" className="hover:text-[#00ffff] transition-colors">BACK TO START</Link>
+          <Link href="#" className="hover:text-[#00ffff] transition-colors">{language === 'id' ? 'KEMBALI KE ATAS' : 'BACK TO START'}</Link>
           <Link href="/#contact" className="hover:text-[#00ffff] transition-colors">CONTACT HQ</Link>
           <Link href="#" className="hover:text-[#00ffff] transition-colors">RSS FEED</Link>
         </div>

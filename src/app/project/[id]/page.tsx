@@ -3,6 +3,8 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Navbar from '../../../components/Navbar';
 import Image from 'next/image';
+import LocalizedText from '../../../components/LocalizedText';
+import { projectTranslations } from '../../../lib/translations';
 
 export default async function ProjectDetail({ params }: { params: Promise<{ id: string }> }) {
   // Await params in case of Next.js 15+
@@ -13,6 +15,8 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
     notFound();
   }
 
+  const projectId = projectTranslations[project.id];
+
   return (
     <div className="min-h-screen bg-[#111] font-sans flex flex-col pb-12">
       <Navbar />
@@ -22,7 +26,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
         {/* Back button */}
         <div className="w-full mb-8">
           <Link href="/#gallery" className="text-[#00ffff] font-black italic hover:underline flex items-center gap-2">
-            <span>&larr;</span> KEMBALI KE GALLERY
+            <span>&larr;</span> <LocalizedText id="KEMBALI KE GALLERY" en="BACK TO GALLERY" />
           </Link>
         </div>
 
@@ -63,7 +67,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
               </div>
               {project.images.length > 1 && (
                 <div className="bg-[#0a0a0a] border-b-[4px] border-[#00ffff] py-3 text-center text-[#00ffff] text-sm italic tracking-widest font-black uppercase">
-                  GESER GAMBAR &rarr;
+                  <LocalizedText id="GESER GAMBAR" en="SWIPE IMAGES" /> &rarr;
                 </div>
               )}
             </>
@@ -87,13 +91,13 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
             {/* Description */}
             <div className="space-y-6 text-gray-300 leading-relaxed text-lg z-10">
               <p className="italic font-medium text-gray-400 border-l-[4px] border-[#00ffff] pl-5 py-2 bg-[#1a1a1a]">
-                {project.description}
+                <LocalizedText id={projectId.description} en={project.description} />
               </p>
               <p className="text-gray-200">
-                {project.fullDescription}
+                <LocalizedText id={projectId.fullDescription} en={project.fullDescription} />
               </p>
               <p className="text-[#00ffff] text-sm font-bold italic mt-8 tracking-wider">
-                TIMELINE: {project.date.toUpperCase()}
+                TIMELINE: <LocalizedText id={projectId.date.toUpperCase()} en={project.date.toUpperCase()} />
               </p>
             </div>
 
@@ -105,7 +109,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
                 rel="noopener noreferrer"
                 className="inline-block border-[3px] border-[#00ffff] bg-[#00ffff] text-black px-8 py-4 font-black italic tracking-wider hover:bg-black hover:text-[#00ffff] transition-colors"
               >
-                LIHAT HASIL PROJECT &rarr;
+                <LocalizedText id="LIHAT HASIL PROJECT" en="VIEW PROJECT" /> &rarr;
               </a>
             </div>
 

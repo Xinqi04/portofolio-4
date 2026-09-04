@@ -39,7 +39,7 @@ export default function MainSection() {
           <div className="absolute inset-0 bg-[#00aaaa] translate-x-2 translate-y-2 group-hover:translate-x-3 group-hover:translate-y-3 transition-transform"></div>
           {/* Main button */}
           <a
-            href="/CV_Riza Anwar Fadil.pdf"
+            href="/CV_Riza Anwar Fadil_ML.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="relative inline-block bg-[#a6c1ee] border-[3px] border-[#00ffff] text-[#111] italic font-black text-lg px-8 py-3 transition-transform group-hover:-translate-x-1 group-hover:-translate-y-1"

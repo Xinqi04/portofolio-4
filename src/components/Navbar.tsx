@@ -1,8 +1,42 @@
+'use client';
+
 import Link from 'next/link';
+import { useEffect, useRef, useState } from 'react';
 
 export default function Navbar() {
+  const [isVisible, setIsVisible] = useState(true);
+  const lastScrollY = useRef(0);
+
+  useEffect(() => {
+    let frameId = 0;
+
+    const handleScroll = () => {
+      cancelAnimationFrame(frameId);
+      frameId = requestAnimationFrame(() => {
+        const currentScrollY = window.scrollY;
+        const isNearTop = currentScrollY < 80;
+        const isScrollingUp = currentScrollY < lastScrollY.current;
+
+        setIsVisible(isNearTop || isScrollingUp);
+        lastScrollY.current = currentScrollY;
+      });
+    };
+
+    lastScrollY.current = window.scrollY;
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+      cancelAnimationFrame(frameId);
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <nav className="w-full border-b-[4px] border-[#00ffff] bg-[#111111] px-6 py-4 flex items-center justify-between">
+    <nav
+      className={`navbar-enter sticky top-0 z-50 w-full border-b-[3px] border-[#00ffff]/70 bg-[#111111]/75 px-6 py-4 flex items-center justify-between backdrop-blur-md transition-[transform,opacity] duration-300 ease-out ${
+        isVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
+      }`}
+    >
       {/* Logo */}
       <div className="text-[#00ffff] text-2xl md:text-3xl font-black italic tracking-wider">
         EPISODE: PORTOFOLIO

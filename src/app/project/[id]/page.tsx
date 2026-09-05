@@ -2,9 +2,10 @@ import { projects } from '../../../lib/projects';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Navbar from '../../../components/Navbar';
-import Image from 'next/image';
+import ProjectGallery from '../../../components/ProjectGallery';
 import LocalizedText from '../../../components/LocalizedText';
 import { projectTranslations } from '../../../lib/translations';
+import FrontendDemoNote from '../../../components/FrontendDemoNote';
 
 export default async function ProjectDetail({ params }: { params: Promise<{ id: string }> }) {
   // Await params in case of Next.js 15+
@@ -49,28 +50,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
               </div>
             </div>
           ) : (
-            <>
-              <div 
-                className="w-full border-b-[4px] border-[#00ffff] bg-gray-900 flex overflow-x-auto snap-x snap-mandatory"
-                style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-              >
-                {project.images.map((imgSrc, idx) => (
-                  <div key={idx} className="relative w-full min-w-full md:min-w-[80%] aspect-video flex-shrink-0 snap-center border-r-[2px] border-black/50 last:border-0 group">
-                    <Image 
-                      src={imgSrc} 
-                      alt={`${project.title} - Image ${idx + 1}`}
-                      fill
-                      className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
-                    />
-                  </div>
-                ))}
-              </div>
-              {project.images.length > 1 && (
-                <div className="bg-[#0a0a0a] border-b-[4px] border-[#00ffff] py-3 text-center text-[#00ffff] text-sm italic tracking-widest font-black uppercase">
-                  <LocalizedText id="GESER GAMBAR" en="SWIPE IMAGES" /> &rarr;
-                </div>
-              )}
-            </>
+            <ProjectGallery images={project.images} title={project.title} />
           )}
 
           {/* Body */}
@@ -103,6 +83,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
 
             {/* External Link */}
             <div className="mt-8 z-10">
+              {project.frontendOnly && <FrontendDemoNote />}
               <a
                 href={project.externalLink}
                 target="_blank"
@@ -125,3 +106,4 @@ export async function generateStaticParams() {
     id: project.id,
   }));
 }
+

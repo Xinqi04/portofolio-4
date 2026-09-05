@@ -35,7 +35,7 @@ const timelineData = [
   {
     id: 3,
     year: '2026',
-    title: 'JUNIOR WEB DEVELOPMENT',
+    title: 'JUNIOR  FULL-STACK DEVELOPER',
     description: 'Mengembangkan kemampuan sebagai Junior Web Developer dengan membangun website responsif serta khususnya di bidang frontend development.',
     titleEn: 'JUNIOR WEB DEVELOPER',
     descriptionEn: 'Developing skills as a Junior Web Developer by building responsive websites, with a particular focus on frontend development.',

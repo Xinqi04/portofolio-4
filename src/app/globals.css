@@ -1,5 +1,24 @@
 @import "tailwindcss";
 
+.portrait-card {
+  transform: rotate(3deg);
+  transition: transform 600ms ease;
+}
+
+.portrait-card[data-flipped="true"] { transform: rotate(0deg); }
+.portrait-scene { perspective: 1000px; }
+.portrait-flipper {
+  transform-style: preserve-3d;
+  transition: transform 600ms ease;
+}
+.portrait-card[data-flipped="true"] .portrait-flipper { transform: rotateY(180deg); }
+.portrait-face { backface-visibility: hidden; }
+.portrait-back { transform: rotateY(180deg); }
+
+@media (prefers-reduced-motion: reduce) {
+  .portrait-card, .portrait-flipper { transition: none; }
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;

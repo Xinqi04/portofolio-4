@@ -1,10 +1,14 @@
 'use client';
 
 import Image from 'next/image';
+import { useState } from 'react';
+import comicPortrait from '../../public/images/pp-komik.png';
+import formalPortrait from '../../public/images/pp-formal.png';
 import { useLanguage } from './LanguageProvider';
 
 export default function MainSection() {
   const { language } = useLanguage();
+  const [portraitFlipped, setPortraitFlipped] = useState(false);
   return (
     <section className="w-full max-w-6xl mx-auto mt-8 border-[4px] border-[#00ffff] bg-[#1a1c20] p-8 md:p-16 flex flex-col md:flex-row items-center justify-between min-h-[600px] relative overflow-hidden">
 
@@ -50,24 +54,50 @@ export default function MainSection() {
       </div>
 
       {/* Right Content - Image */}
-      <div className="z-10 mt-16 md:mt-0 relative group">
+      <div className="z-10 mt-16 md:mt-0 relative">
         {/* Shadow */}
         <div className="absolute inset-0 bg-black/50 translate-x-4 translate-y-6 blur-md"></div>
 
         {/* Card */}
-        <div className="relative border-[4px] border-[#00ffff] bg-[#111] p-2 pb-0 w-72 md:w-[350px] rotate-3 transition-transform group-hover:rotate-0 duration-500">
-          <div className="relative w-full aspect-[3/4] overflow-hidden border-b-[4px] border-[#00ffff]">
+        <button
+          type="button"
+          className="portrait-card relative block border-[4px] border-[#00ffff] bg-[#111] p-2 pb-0 w-72 md:w-[350px] cursor-pointer focus-visible:outline-4 focus-visible:outline-offset-8 focus-visible:outline-[#00ffff]"
+          data-flipped={portraitFlipped}
+          aria-label={language === 'id' ? 'Ganti foto komik dan formal' : 'Switch comic and formal portraits'}
+          aria-pressed={portraitFlipped}
+          onPointerEnter={(event) => { if (event.pointerType === 'mouse') setPortraitFlipped(true); }}
+          onPointerLeave={(event) => { if (event.pointerType === 'mouse') setPortraitFlipped(false); }}
+          onClick={() => setPortraitFlipped((flipped) => !flipped)}
+          onBlur={() => setPortraitFlipped(false)}
+        >
+          <div className="portrait-scene relative w-full aspect-[3/4] border-b-[4px] border-[#00ffff]">
+            <div className="portrait-flipper absolute inset-0">
+            <div className="portrait-face absolute inset-0 overflow-hidden" aria-hidden={portraitFlipped}>
             <Image
-              src="/images/foto-pp.png"
+              src={comicPortrait}
               alt={language === 'id' ? 'Sang Penulis Kode' : 'The Code Author'}
               fill
-              className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
+              sizes="(min-width: 768px) 326px, 264px"
+              preload
+              className="object-cover"
             />
+            </div>
+            <div className="portrait-face portrait-back absolute inset-0 overflow-hidden" aria-hidden={!portraitFlipped}>
+              <Image
+                src={formalPortrait}
+                alt={language === 'id' ? 'Foto formal Riza Anwar Fadil' : 'Formal portrait of Riza Anwar Fadil'}
+                fill
+                sizes="(min-width: 768px) 326px, 264px"
+                loading="eager"
+                className="object-cover"
+              />
+            </div>
+            </div>
           </div>
           <div className="bg-[#00ffff] text-black text-center font-black italic py-3 text-lg">
             RIZA ANWAR FADIL
           </div>
-        </div>
+        </button>
       </div>
     </section>
   );

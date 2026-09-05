@@ -7,6 +7,7 @@ export const projects = [
     description: 'Developed a personalized learning recommendation system using graph database (Neo4j) to model relationships between students, courses, and learning outcomes.',
     fullDescription: 'Developed a personalized learning recommendation system using graph database (Neo4j) to model relationships between students, courses, and learning outcomes. Built RESTful APIs using Fast API for adaptive recommendation delivery. Implemented logic for tracking student performance and dynamically recommending relevant learning materials. Designed scalable architecture to support future LMS integration.',
     externalLink: 'https://fe-obe-sistem-rekomendasi.vercel.app/',
+    frontendOnly: true,
     date: 'Jan 2026 - Present',
     images: ['/images/sistemrekomendasi/14.png', '/images/sistemrekomendasi/15.png', '/images/sistemrekomendasi/16.png', '/images/sistemrekomendasi/17.png', '/images/sistemrekomendasi/18.png']
   },
@@ -18,6 +19,7 @@ export const projects = [
     description: 'Developed the backend system for Skillearn, a web-based learning platform designed to help users improve their skills.',
     fullDescription: 'Developed the backend system for Skillearn, a web-based learning platform designed to help users improve their skills through structured learning materials and mentoring features. Implemented RESTful APIs using Express.js to handle user authentication, course data management, and communication between the frontend and database. Designed scalable backend architecture, ensured efficient data processing, and supported multiple user roles within the platform to enable seamless interaction between learners and mentors. The platform aims to facilitate skill development through an accessible online learning environment.',
     externalLink: 'https://skillearn.vercel.app/',
+    frontendOnly: true,
     date: 'Sept 2025 - Present',
     images: ['/images/skillearn/20.png']
   },
@@ -29,6 +31,7 @@ export const projects = [
     description: 'Intelligent self-care ecosystem for university students to support mental health.',
     fullDescription: 'In the Tenangin project, I worked as a machine learning developer and frontend contributor in building an intelligent self-care ecosystem for university students. The application aims to support students\' mental health through features such as self-assessment, counselor recommendations, journaling, and an interactive chatbot. I developed a stress-level prediction model based on user data and integrated it into the system, while also assisting in presenting results and interactions through an intuitive user interface.',
     externalLink: 'https://frontend-tenangin.vercel.app/',
+    frontendOnly: true,
     date: 'May 2025 - Present',
     images: ['/images/tenangin/1.png', '/images/tenangin/2.png', '/images/tenangin/3.png', '/images/tenangin/4.png', '/images/tenangin/5.png', '/images/tenangin/6.png']
   },
@@ -36,7 +39,7 @@ export const projects = [
     id: 'analisis-sentimen',
     episode: 'EPISODE 04',
     title: 'ANALISIS SENTIMEN',
-    tags: ['PYTHON', 'NLP', 'TEXTBLOB'],
+    tags: ['PYTHON', 'NLP'],
     description: 'Sentiment analysis project using Python and NLP libraries to classify public opinions.',
     fullDescription: 'Developed a sentiment analysis project using Python and NLP libraries such as TextBlob to classify public opinions on a given topic in English. The project involved text preprocessing, sentiment visualization, and implementation of classification methods to determine whether reviews express positive, negative, or neutral sentiments.',
     externalLink: 'https://github.com/Xinqi04/Analisis-Sentimen',

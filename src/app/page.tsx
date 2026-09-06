@@ -5,6 +5,7 @@ import ToolsSection from "../components/ToolsSection";
 import PowersSection from "../components/PowersSection";
 import CertificatesSection from "../components/CertificatesSection";
 import TimelineSection from "../components/TimelineSection";
+// import AchievementsSection from "../components/AchievementsSection";
 import ContactSection from "../components/ContactSection";
 import Footer from "../components/Footer";
 import Reveal from "../components/Reveal";
@@ -22,6 +23,7 @@ export default function Home() {
         <Reveal className="w-full"><PowersSection /></Reveal>
         <Reveal className="w-full"><CertificatesSection /></Reveal>
         <Reveal className="w-full"><TimelineSection /></Reveal>
+        {/* <Reveal className="w-full"><AchievementsSection /></Reveal> */}
         <Reveal className="w-full"><ContactSection /></Reveal>
       </main>
       <Reveal className="w-full"><Footer /></Reveal>

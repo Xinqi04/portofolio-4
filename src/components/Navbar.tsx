@@ -41,7 +41,7 @@ export default function Navbar() {
     >
       {/* Logo */}
       <div className="text-[#00ffff] text-2xl md:text-3xl font-black italic tracking-wider">
-        {language === 'id' ? 'EPISODE: PORTOFOLIO' : 'EPISODE: PORTFOLIO'}
+        {language === 'id' ? 'EPISODE: PORTOFOLIO' : 'EPISODE: PORTOFOLIO'}
       </div>
 
       {/* Navigation Links */}
